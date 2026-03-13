@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import LoadingScreen from './components/LoadingScreen'
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -17,6 +18,7 @@ const fadeIn: Variants = {
 function App() {
   return (
     <>
+      <LoadingScreen />
       <Header />
       <main>
         <Hero />

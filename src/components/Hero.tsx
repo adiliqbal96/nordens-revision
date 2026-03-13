@@ -2,13 +2,17 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
     return (
-        <section className="hero" id="home">
+        <section className="hero" id="home" style={{ position: 'relative', overflow: 'hidden' }}>
+            <div className="hero-logo-bg">
+                <img src="/src/assets/logo.png" alt="" style={{ width: '100%', height: 'auto' }} />
+            </div>
+
             <div className="container">
                 <div className="hero-content">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <span className="badge">Præcision • Kvalitet • Tryghed</span>
                         <h1>Fremtidens revision <br />er personlig.</h1>

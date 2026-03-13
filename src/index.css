@@ -44,6 +44,7 @@ body {
 /* Base Styles */
 section {
   padding: 8rem 0;
+  position: relative;
 }
 
 h1,
@@ -171,10 +172,26 @@ nav.scrolled {
   align-items: center;
   padding-top: 6rem;
   background: radial-gradient(circle at top right, #f1f5f9, var(--bg-base));
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 10;
   max-width: 700px;
+}
+
+.hero-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 600px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .badge {
@@ -273,5 +290,9 @@ nav.scrolled {
 
   section {
     padding: 5rem 0;
+  }
+
+  .hero-logo-bg {
+    width: 90%;
   }
 }
