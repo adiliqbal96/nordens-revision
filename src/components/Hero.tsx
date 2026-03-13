@@ -4,16 +4,16 @@ const Hero: React.FC = () => {
     return (
         <section className="hero" id="home">
             <div className="container">
-                <div className="hero-content animate">
-                    <span className="hero-badge">Kompetent Rådgivning</span>
-                    <h1>Vi har dit regnskab i fokus.</h1>
+                <div className="hero-content">
+                    <span className="hero-badge">Revision & Rådgivning</span>
+                    <h1>Vi skaber overblik over din økonomi</h1>
                     <p>
-                        Hos Nordens Revision kan du være sikker på kompetent hjælp og rådgivning.
-                        Vi fokuserer på tallene, så du kan fokusere på driften.
+                        Hos Nordens Revision får du professionel rådgivning med fokus på gennemsigtighed.
+                        Vi hjælper dig med at navigere i komplekse regnskaber, så du kan fokusere på din kerneforretning.
                     </p>
-                    <div className="hero-btns">
-                        <a href="#contact" className="btn btn-primary">Kom i gang</a>
-                        <a href="#services" className="btn btn-outline" style={{ marginLeft: '1rem' }}>Vores ydelser</a>
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem' }}>
+                        <a href="#contact" className="btn btn-primary">Kontakt os i dag</a>
+                        <a href="#services" className="btn btn-outline">Se vores ydelser</a>
                     </div>
                 </div>
             </div>
