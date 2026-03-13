@@ -12,33 +12,33 @@ import {
 const services = [
     {
         title: 'Bogføring',
-        description: 'Effektiv og præcis håndtering af din daglige økonomi, bilag og momsindberetning.',
-        icon: <BarChart3 size={24} />
+        description: 'Præcis håndtering af din økonomi med fokus på dytital gennemsigtighed.',
+        icon: <BarChart3 size={28} />
     },
     {
         title: 'Revision',
-        description: 'Lovpligtig og frivillig revision af årsregnskaber for at sikre høj grad af sikkerhed og troværdighed.',
-        icon: <Search size={24} />
+        description: 'Status og troværdighed gennem grundig og professionel gennemgang.',
+        icon: <Search size={28} />
     },
     {
-        title: 'Rådgivning',
-        description: 'Strategisk sparring om skat, virksomhedsudvikling og økonomiske beslutninger.',
-        icon: <Handshake size={24} />
+        title: 'Strategisk Rådgivning',
+        description: 'Ekspertrådgivning der sikrer din virksomheds vækst og stabilitet.',
+        icon: <Handshake size={28} />
     },
     {
         title: 'Årsregnskab',
-        description: 'Opstilling og gennemgang af årsregnskaber i overensstemmelse med årsregnskabsloven.',
-        icon: <FileText size={24} />
+        description: 'Komplette årsrapporter leveret med højeste standard for præcision.',
+        icon: <FileText size={28} />
     },
     {
-        title: 'Skattesager',
-        description: 'Professionel assistance ved skattesager og dialog med myndighederne.',
-        icon: <Scale size={24} />
+        title: 'Skattetrin',
+        description: 'Optimering af skatteforhold og assistance ved myndighedsdialog.',
+        icon: <Scale size={28} />
     },
     {
-        title: 'Startup Service',
-        description: 'Hjælp til opstart af virksomhed, valg af selskabsform og budgetter.',
-        icon: <Rocket size={24} />
+        title: 'Innovation & Startups',
+        description: 'Specialiseret hjælp til nye virksomheder og vækstorienterede visioner.',
+        icon: <Rocket size={28} />
     }
 ];
 
@@ -46,15 +46,18 @@ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
+        transition: { staggerChildren: 0.15 }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
+    }
 };
 
 const Services: React.FC = () => {
@@ -64,14 +67,18 @@ const Services: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
         >
             {services.map((service, index) => (
                 <motion.div
                     key={index}
-                    className="service-card"
+                    className="service-card glass"
                     variants={itemVariants}
-                    whileHover={{ y: -5, boxShadow: 'var(--shadow-lg)', borderColor: 'var(--accent)' }}
+                    whileHover={{
+                        y: -10,
+                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                        borderColor: 'var(--accent-secondary)'
+                    }}
                 >
                     <div className="service-icon">{service.icon}</div>
                     <h3>{service.title}</h3>
