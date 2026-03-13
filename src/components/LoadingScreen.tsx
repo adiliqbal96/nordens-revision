@@ -22,7 +22,7 @@ const LoadingScreen = () => {
                         position: 'fixed',
                         inset: 0,
                         zIndex: 9999,
-                        backgroundColor: '#f8fafc',
+                        backgroundColor: '#ffffff', // Pure white background
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -30,26 +30,30 @@ const LoadingScreen = () => {
                     }}
                 >
                     <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
+                        initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{
-                            duration: 1,
+                            duration: 1.2,
                             ease: "easeOut",
                             repeat: Infinity,
                             repeatType: "reverse"
                         }}
-                        style={{ width: '120px', marginBottom: '1.5rem' }}
+                        style={{ width: '200px', marginBottom: '2rem' }} // Larger logo width
                     >
-                        <img src="/src/assets/logo.png" alt="Loading Logo" style={{ width: '100%', height: 'auto' }} />
+                        <img
+                            src="/src/assets/logo.png"
+                            alt="Loading Logo"
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
                     </motion.div>
                     <motion.div
                         initial={{ width: 0 }}
-                        animate={{ width: '100px' }}
+                        animate={{ width: '150px' }}
                         transition={{ duration: 1.5, ease: "easeInOut" }}
                         style={{
-                            height: '2px',
-                            backgroundColor: '#0d9488',
-                            borderRadius: '2px'
+                            height: '3px',
+                            backgroundColor: '#0d9488', // Teal accent
+                            borderRadius: '3px'
                         }}
                     />
                 </motion.div>
