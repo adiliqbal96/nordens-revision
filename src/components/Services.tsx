@@ -47,14 +47,23 @@ const containerVariants: Variants = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1
+            staggerChildren: 0.15,
+            delayChildren: 0.1
         }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'circOut' } }
+    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+    show: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1]
+        }
+    }
 };
 
 const Services: React.FC = () => {
@@ -71,10 +80,16 @@ const Services: React.FC = () => {
                     key={index}
                     className="service-card"
                     variants={itemVariants}
+                    whileHover={{
+                        y: -10,
+                        scale: 1.02,
+                        boxShadow: '0 20px 40px -20px rgba(13, 148, 136, 0.2)',
+                        borderColor: 'var(--accent)'
+                    }}
                 >
                     <div className="service-icon">{service.icon}</div>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
+                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1.25rem' }}>{service.title}</h3>
+                    <p style={{ fontSize: '1rem', lineHeight: '1.7' }}>{service.description}</p>
                 </motion.div>
             ))}
         </motion.div>

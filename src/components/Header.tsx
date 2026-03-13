@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -11,6 +13,8 @@ const Header: React.FC = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const isHome = location.pathname === '/';
 
     return (
         <motion.nav
@@ -22,30 +26,55 @@ const Header: React.FC = () => {
             <div className="container nav-container">
                 <motion.div
                     className="logo"
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                 >
-                    NORDENS<span>REVISION</span>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                        <div className="logo" style={{ fontSize: '1.65rem', letterSpacing: '-0.03em' }}>NORDENS<span>REVISION</span></div>
+                    </Link>
                 </motion.div>
                 <div className="nav-links">
-                    {['Hjem', 'Ydelser', 'Om os'].map((item) => (
-                        <motion.a
-                            key={item}
-                            href={`#${item === 'Hjem' ? 'home' : item.toLowerCase().replace(' ', '')}`}
-                            whileHover={{ color: 'var(--accent)' }}
-                            style={{ position: 'relative' }}
-                        >
-                            {item}
-                        </motion.a>
-                    ))}
-                    <motion.a
-                        href="#contact"
-                        className="btn btn-primary"
-                        style={{ padding: '0.5rem 1.5rem', marginLeft: '1rem' }}
+                    {['Hjem', 'Ydelser', 'Om os'].map((item) => {
+                        const id = item === 'Hjem' ? 'home' : item.toLowerCase().replace(' ', '');
+                        return (
+                            <motion.a
+                                key={item}
+                                href={isHome ? `#${id}` : `/#${id}`}
+                                whileHover={{ color: 'var(--accent)' }}
+                                style={{ position: 'relative' }}
+                                onClick={(e) => {
+                                    if (id === 'home') {
+                                        if (isHome) {
+                                            e.preventDefault();
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }
+                                    }
+                                }}
+                            >
+                                {item}
+                            </motion.a>
+                        );
+                    })}
+                    <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Få et tilbud
-                    </motion.a>
+                        <Link
+                            to="/kontakt"
+                            className="btn btn-primary"
+                            style={{
+                                padding: '0.6rem 1.5rem',
+                                marginLeft: '1rem',
+                                backgroundColor: 'var(--primary)',
+                                color: '#ffffff',
+                                boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                                textDecoration: 'none',
+                                display: 'inline-block'
+                            }}
+                        >
+                            Få et tilbud
+                        </Link>
+                    </motion.div>
                 </div>
             </div>
         </motion.nav>

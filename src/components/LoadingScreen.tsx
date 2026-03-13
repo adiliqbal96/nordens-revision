@@ -7,7 +7,7 @@ const LoadingScreen = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000); // 2 seconds loading
+        }, 1800); // Shorter duration for better UX
         return () => clearTimeout(timer);
     }, []);
 
@@ -17,12 +17,12 @@ const LoadingScreen = () => {
                 <motion.div
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                     style={{
                         position: 'fixed',
                         inset: 0,
                         zIndex: 9999,
-                        backgroundColor: '#ffffff', // Pure white background
+                        backgroundColor: '#ffffff',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -30,32 +30,31 @@ const LoadingScreen = () => {
                     }}
                 >
                     <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{
-                            duration: 1.2,
-                            ease: "easeOut",
-                            repeat: Infinity,
-                            repeatType: "reverse"
-                        }}
-                        style={{ width: 'clamp(300px, 80vw, 500px)', marginBottom: '3rem' }} // Much larger logo with responsive clamp
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        style={{ width: 'clamp(180px, 40vw, 240px)', marginBottom: '2rem' }}
                     >
                         <img
                             src="/src/assets/logo.png"
-                            alt="Loading Logo"
-                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                            alt="Nordens Revision"
+                            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
                         />
                     </motion.div>
-                    <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: '200px' }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        style={{
-                            height: '4px',
-                            backgroundColor: '#0d9488', // Teal accent
-                            borderRadius: '4px'
-                        }}
-                    />
+
+                    {/* Green loading bar (streg) */}
+                    <div style={{ width: '200px', height: '4px', backgroundColor: 'rgba(13, 148, 136, 0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: '100%' }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            style={{
+                                height: '100%',
+                                backgroundColor: 'var(--accent)', // Teal/Green accent
+                                borderRadius: '4px'
+                            }}
+                        />
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>
