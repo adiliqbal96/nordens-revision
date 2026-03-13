@@ -95,6 +95,19 @@ p {
   font-family: var(--font-serif);
   font-size: 1.1rem;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  /* Removed underline */
+}
+
+.contact-emerald .btn-outline {
+  border-color: var(--gold-500);
+  color: var(--gold-500);
+  background: transparent;
+}
+
+.contact-emerald .btn-outline:hover {
+  background: var(--gold-500);
+  color: var(--emerald-900);
 }
 
 .btn-primary {

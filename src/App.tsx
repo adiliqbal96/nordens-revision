@@ -113,9 +113,9 @@ function App() {
               </motion.div>
             </div>
 
-            <div style={{ marginTop: '6rem', display: 'flex', justifyContent: 'flex-end' }}>
-              <a href="mailto:info@nordensrevision.dk" className="btn btn-outline" style={{ borderColor: 'var(--gold-500)', color: 'var(--gold-500)', borderRadius: '0' }}>
-                SEND OS EN BESKED <ArrowRight size={18} style={{ marginLeft: '1rem' }} />
+            <div style={{ marginTop: '6rem', display: 'flex', justifyContent: 'center' }}>
+              <a href="mailto:info@nordensrevision.dk" className="btn btn-primary" style={{ backgroundColor: 'var(--gold-500)', color: 'var(--emerald-900)', padding: '1.5rem 4rem', fontSize: '1.25rem' }}>
+                FÅ ET UFORPLIGTENDE TILBUD <ArrowRight size={20} style={{ marginLeft: '1rem' }} />
               </a>
             </div>
           </div>
