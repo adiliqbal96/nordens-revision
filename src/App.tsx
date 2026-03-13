@@ -10,7 +10,7 @@ const fadeIn: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }
+    transition: { duration: 0.5, ease: 'easeOut' }
   }
 };
 
@@ -29,104 +29,102 @@ function App() {
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              Kompetencer & Ydelser
+              Hvad vi kan hjælpe dig med
             </motion.h2>
             <Services />
           </div>
         </section>
 
-        <section id="about" style={{ background: '#fcfaf6' }}>
+        <section id="about">
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '4rem', alignItems: 'center' }}>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeIn}
               >
-                <div style={{ background: 'var(--gold-500)', width: '40px', height: '2px', marginBottom: '2rem' }}></div>
-                <h2 style={{ textAlign: 'left', marginBottom: '2rem' }}>Revision med rødder <br />i tillid og vækst</h2>
+                <span className="badge">Om os</span>
+                <h2 style={{ textAlign: 'left', marginBottom: '2rem' }}>Din rådgivende partner <br />i en kompleks verden</h2>
                 <p>
-                  Nordens Revision er startet med ét formål: At tilbyde kompetent hjælp og rådgivning, der flytter virksomheder fremad. Vi ser ikke bare på tallene; vi ser på de visioner, der driver dem.
+                  Nordens Revision hjælper virksomhedsejere med at navigere sikkert gennem økonomiske udfordringer. Vi ser ikke bare på tallene – vi ser på hele din forretning.
                 </p>
                 <p style={{ marginTop: '1.5rem' }}>
-                  Vore klienter spænder vidt – fra iværksættere til etablerede selskaber og fonde. Fælles for dem alle er ønsket om en revisor, der forstår værdien af personlig kontakt.
+                  Som moderne revisionshus prioriterer vi tæt kontakt og proaktiv sparring. Uanset om du er nystartet iværksættere eller driver en etableret virksomhed, står vi klar til at hjælpe.
                 </p>
               </motion.div>
-              <div style={{ borderLeft: '1px solid var(--border)', paddingLeft: '4rem' }}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                >
-                  <h3 style={{ color: 'var(--emerald-900)', fontSize: '2.5rem', marginBottom: '2rem' }}>Vores værdisæt</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                    <div>
-                      <h4 style={{ color: 'var(--gold-600)', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Transparent</h4>
-                      <p style={{ fontSize: '1rem', marginTop: '0.5rem' }}>Ingen overraskelser. Vi kommunikerer klart og tydeligt om dit regnskab.</p>
-                    </div>
-                    <div>
-                      <h4 style={{ color: 'var(--gold-600)', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Proaktiv</h4>
-                      <p style={{ fontSize: '1rem', marginTop: '0.5rem' }}>Vi venter ikke på at problemer opstår, vi forudser muligheder for din vækst.</p>
-                    </div>
+              <motion.div
+                style={{ background: 'white', padding: '3rem', borderRadius: '1.5rem', border: '1px solid var(--border)' }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                <h3 style={{ borderLeft: '4px solid var(--accent)', paddingLeft: '1.5rem', marginBottom: '2rem' }}>Vision & Værdier</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div>
+                    <h4 style={{ fontSize: '1rem', color: 'var(--primary)' }}>Integritet</h4>
+                    <p style={{ fontSize: '0.95rem' }}>Vi arbejder altid med højeste etiske standarder.</p>
                   </div>
-                </motion.div>
-              </div>
+                  <div>
+                    <h4 style={{ fontSize: '1rem', color: 'var(--primary)' }}>Innovation</h4>
+                    <p style={{ fontSize: '0.95rem' }}>Vi bruger de nyeste digitale værktøjer for din effektivitet.</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="contact-emerald">
+        <section id="contact" className="contact-section">
           <div className="container">
-            <motion.h2
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              Lad os tage en dialog om <br />din fremtid
-            </motion.h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.25rem' }}>Vi står klar til en uforpligtende snak om dit næste regnskabsår.</p>
+              <h2>Skal vi hjælpe dig videre?</h2>
+              <p>Vi tilbyder altid et uforpligtende møde for at se på dine behov.</p>
+            </motion.div>
 
-            <div className="contact-info">
-              <motion.div className="info-block" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <Mail size={18} color="var(--gold-500)" />
-                  <h4>E-mail</h4>
+            <div className="contact-grid">
+              <div className="contact-item">
+                <h4>E-mail</h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <Mail size={20} color="var(--accent-light)" />
+                  <a href="mailto:info@nordensrevision.dk">info@nordensrevision.dk</a>
                 </div>
-                <a href="mailto:info@nordensrevision.dk">info@nordensrevision.dk</a>
-              </motion.div>
-              <motion.div className="info-block" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <Phone size={18} color="var(--gold-500)" />
-                  <h4>Telefon</h4>
+              </div>
+              <div className="contact-item">
+                <h4>Telefon</h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <Phone size={20} color="var(--accent-light)" />
+                  <a href="tel:+4550696917">+45 50 69 69 17</a>
                 </div>
-                <a href="tel:+4550696917">+45 50 69 69 17</a>
-              </motion.div>
-              <motion.div className="info-block" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <MapPin size={18} color="var(--gold-500)" />
-                  <h4>Besøg</h4>
+              </div>
+              <div className="contact-item">
+                <h4>Adresse</h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <MapPin size={20} color="var(--accent-light)" />
+                  <p>Arnold Nielsens Blvd. 124, 2650 Hvidovre</p>
                 </div>
-                <p>Arnold Nielsens Blvd. 124<br />2650 Hvidovre</p>
-              </motion.div>
+              </div>
             </div>
 
-            <div style={{ marginTop: '6rem', display: 'flex', justifyContent: 'center' }}>
-              <a href="mailto:info@nordensrevision.dk" className="btn btn-primary" style={{ backgroundColor: 'var(--gold-500)', color: 'var(--emerald-900)', padding: '1.5rem 4rem', fontSize: '1.25rem' }}>
-                FÅ ET UFORPLIGTENDE TILBUD <ArrowRight size={20} style={{ marginLeft: '1rem' }} />
+            <div style={{ marginTop: '5rem' }}>
+              <a href="mailto:info@nordensrevision.dk" className="btn btn-primary" style={{ backgroundColor: 'var(--accent)', color: 'white', padding: '1.25rem 3rem' }}>
+                Få et tilbud <ArrowRight size={20} style={{ marginLeft: '1rem' }} />
               </a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer style={{ padding: '6rem 0', background: 'white', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
+      <footer style={{ padding: '4rem 0', background: 'white', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
         <div className="container">
-          <div className="logo" style={{ marginBottom: '2rem' }}>NORDENS<span>REVISION</span></div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--slate-600)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-            &copy; {new Date().getFullYear()} Nordens Revision ApS. Alle rettigheder forbeholdes.
+          <div className="logo" style={{ marginBottom: '1.5rem' }}>NORDENS<span>REVISION</span></div>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+            &copy; {new Date().getFullYear()} Nordens Revision ApS. CVR: XXXXXXXX.
           </p>
         </div>
       </footer>

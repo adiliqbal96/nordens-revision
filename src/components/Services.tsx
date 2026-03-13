@@ -12,33 +12,33 @@ import {
 const services = [
     {
         title: 'Bogføring',
-        description: 'Vi varetager din bogføring med præcision, så du altid har et sikkert økonomisk fundament.',
-        icon: <BarChart3 size={32} strokeWidth={1.5} />
+        description: 'Effektiv og præcis bogføring, der danner fundamentet for din virksomheds succes.',
+        icon: <BarChart3 size={28} />
     },
     {
         title: 'Revision',
-        description: 'Uvildig og grundig revision, der skaber gennemsigtighed for investorer og myndigheder.',
-        icon: <Search size={32} strokeWidth={1.5} />
+        description: 'Pålidelig revision, der skaber tryghed og gennemsigtighed for alle interessenter.',
+        icon: <Search size={28} />
     },
     {
         title: 'Rådgivning',
-        description: 'Strategisk sparring og rådgivning om optimering af din virksomheds økonomiske struktur.',
-        icon: <Handshake size={32} strokeWidth={1.5} />
+        description: 'Proaktiv rådgivning om skat, økonomi og virksomhedens langsigtede strategi.',
+        icon: <Handshake size={28} />
     },
     {
         title: 'Årsregnskab',
-        description: 'Kvalitetssikrede årsregnskaber leveret rettidigt og efter gældende lovgivning.',
-        icon: <FileText size={32} strokeWidth={1.5} />
+        description: 'Præcis opstilling af årsrapporter i overensstemmelse med gældende lovgivning.',
+        icon: <FileText size={28} />
     },
     {
         title: 'Skattesager',
-        description: 'Specialiseret bistand ved skatteforhold og dialog med relevante instanser.',
-        icon: <Scale size={32} strokeWidth={1.5} />
+        description: 'Professionel assistance ved skattemæssige udfordringer og dialog med myndigheder.',
+        icon: <Scale size={28} />
     },
     {
-        title: 'Vækst & Startups',
-        description: 'Vi hjælper nye virksomheder sikkert fra start med budgetter og selskabsstifter.',
-        icon: <Rocket size={32} strokeWidth={1.5} />
+        title: 'Startups',
+        description: 'Specialiseret hjælp til iværksættere, fra forretningsplaner til selskabsdannelse.',
+        icon: <Rocket size={28} />
     }
 ];
 
@@ -53,8 +53,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0.8, 0.2, 1] } }
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'circOut' } }
 };
 
 const Services: React.FC = () => {
@@ -69,7 +69,7 @@ const Services: React.FC = () => {
             {services.map((service, index) => (
                 <motion.div
                     key={index}
-                    className="service-item"
+                    className="service-card"
                     variants={itemVariants}
                 >
                     <div className="service-icon">{service.icon}</div>

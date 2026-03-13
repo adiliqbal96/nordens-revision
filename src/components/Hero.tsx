@@ -6,34 +6,20 @@ const Hero: React.FC = () => {
             <div className="container">
                 <div className="hero-content">
                     <motion.div
-                        className="hero-line"
-                        initial={{ width: 0 }}
-                        animate={{ width: 80 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                    />
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
                     >
-                        Lederskab gennem <br />finansiel klarhed.
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        Hos Nordens Revision forener vi traditionel revision med moderne finansiel indsigt.
-                        Vi er din partner i at sikre vækst og stabilitet gennem gennemsigtighed.
-                    </motion.p>
-                    <motion.div
-                        style={{ display: 'flex', gap: '1.5rem', marginTop: '3.5rem' }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        <a href="#contact" className="btn btn-primary">Book rådgivning</a>
-                        <a href="#services" className="btn btn-outline">Vores ydelser</a>
+                        <span className="badge">Præcision • Kvalitet • Tryghed</span>
+                        <h1>Fremtidens revision <br />er personlig.</h1>
+                        <p>
+                            Nordens Revision kombinerer høj faglig ekspertise med moderne digitale løsninger.
+                            Vi sikrer, at dit regnskab flytter din virksomhed fremad.
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem', marginTop: '3rem' }}>
+                            <a href="#contact" className="btn btn-primary">Book rådgivning</a>
+                            <a href="#services" className="btn btn-outline">Se vores ydelser</a>
+                        </div>
                     </motion.div>
                 </div>
             </div>
