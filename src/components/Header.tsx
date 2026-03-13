@@ -43,10 +43,13 @@ const Header: React.FC = () => {
                                 whileHover={{ color: 'var(--accent)' }}
                                 style={{ position: 'relative' }}
                                 onClick={(e) => {
-                                    if (id === 'home') {
+                                    if (id === 'home' || id === 'ydelser' || id === 'omos') {
                                         if (isHome) {
-                                            e.preventDefault();
-                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            const element = document.getElementById(id);
+                                            if (element) {
+                                                e.preventDefault();
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
                                         }
                                     }
                                 }}

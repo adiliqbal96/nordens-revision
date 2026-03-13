@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const MagneticButton: React.FC<{ children: React.ReactNode; className: string; to: string }> = ({ children, className, to }) => {
     const x = useMotionValue(0);
@@ -47,7 +48,7 @@ const Hero: React.FC = () => {
     return (
         <section className="hero" id="home" style={{ position: 'relative', overflow: 'hidden' }}>
             <div className="hero-logo-bg">
-                <img src="/src/assets/logo.png" alt="" style={{ width: '100%', height: 'auto', mixBlendMode: 'multiply', opacity: 0.05 }} />
+                <img src={logo} alt="" style={{ width: '100%', height: 'auto', mixBlendMode: 'multiply', opacity: 0.05 }} />
             </div>
 
             <div className="container">

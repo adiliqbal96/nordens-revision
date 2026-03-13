@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import logo from '../assets/logo.png';
 
 const LoadingScreen = () => {
     const [loading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ const LoadingScreen = () => {
                         style={{ width: 'clamp(180px, 40vw, 240px)', marginBottom: '2rem' }}
                     >
                         <img
-                            src="/src/assets/logo.png"
+                            src={logo}
                             alt="Nordens Revision"
                             style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
                         />
