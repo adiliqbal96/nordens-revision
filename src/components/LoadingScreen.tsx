@@ -38,7 +38,7 @@ const LoadingScreen = () => {
                             repeat: Infinity,
                             repeatType: "reverse"
                         }}
-                        style={{ width: '200px', marginBottom: '2rem' }} // Larger logo width
+                        style={{ width: 'clamp(300px, 80vw, 500px)', marginBottom: '3rem' }} // Much larger logo with responsive clamp
                     >
                         <img
                             src="/src/assets/logo.png"
@@ -48,12 +48,12 @@ const LoadingScreen = () => {
                     </motion.div>
                     <motion.div
                         initial={{ width: 0 }}
-                        animate={{ width: '150px' }}
+                        animate={{ width: '200px' }}
                         transition={{ duration: 1.5, ease: "easeInOut" }}
                         style={{
-                            height: '3px',
+                            height: '4px',
                             backgroundColor: '#0d9488', // Teal accent
-                            borderRadius: '3px'
+                            borderRadius: '4px'
                         }}
                     />
                 </motion.div>
