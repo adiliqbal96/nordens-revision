@@ -66,9 +66,9 @@ const Hero: React.FC = () => {
                         >
                             Præcision • Kvalitet • Tryghed
                         </motion.span>
-                        <h1 style={{ lineHeight: 1.05 }}>Fremtidens revision <br />er personlig.</h1>
+                        <h1 style={{ lineHeight: 1.05 }}>Din personlige <br />økonomiske rådgiver.</h1>
                         <p style={{ maxWidth: '600px', fontSize: '1.25rem' }}>
-                            Nordens Revision kombinerer høj faglig ekspertise med moderne digitale løsninger.
+                            Nordens Revision kombinerer høj faglig ekspertise med en masse års erfaring.
                             Vi sikrer, at dit regnskab flytter din virksomhed fremad.
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem', marginTop: '3.5rem' }}>

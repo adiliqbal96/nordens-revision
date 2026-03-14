@@ -5,7 +5,7 @@ import {
     Search,
     Handshake,
     FileText,
-    Scale,
+    Truck,
     Rocket
 } from 'lucide-react';
 
@@ -27,13 +27,13 @@ const services = [
     },
     {
         title: 'Årsregnskab',
-        description: 'Præcis opstilling af årsrapporter i overensstemmelse med gældende lovgivning.',
+        description: 'Opstilling af årsrapporter i overensstemmelse med gældende lovgivning.',
         icon: <FileText size={28} />
     },
     {
-        title: 'Skattesager',
-        description: 'Professionel assistance ved skattemæssige udfordringer og dialog med myndigheder.',
-        icon: <Scale size={28} />
+        title: 'Revisorerklæring til persontransport og varebil',
+        description: 'Professionel assistance ved revisorerklæring til persontransport og varebil.',
+        icon: <Truck size={28} />
     },
     {
         title: 'Startups',

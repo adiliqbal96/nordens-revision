@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 style={{ marginBottom: '1rem' }}>Professionelle Revisionsydelser</h2>
+                        <h2 style={{ marginBottom: '1rem' }}>Professionelle ydelser</h2>
                         <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 5rem', fontSize: '1.25rem' }}>
                             Vi tilbyder en bred vifte af ydelser skræddersyet til både små og store virksomheder.
                             Vores mål er at gøre din økonomi gennemsigtig og din hverdag lettere.
@@ -68,16 +68,143 @@ const LandingPage: React.FC = () => {
                                     <h4 style={{ fontSize: '1.25rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '0.75rem' }}>Kompromisløs Integritet</h4>
                                     <p style={{ fontSize: '1.05rem' }}>Ærlighed og gennemsigtighed er kernen i alt, hvad vi foretager os.</p>
                                 </div>
-                                <div>
-                                    <h4 style={{ fontSize: '1.25rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '0.75rem' }}>Digital Innovation</h4>
-                                    <p style={{ fontSize: '1.05rem' }}>Vi udnytter de nyeste cloud-teknologier til at optimere dit flow.</p>
-                                </div>
+
                                 <div>
                                     <h4 style={{ fontSize: '1.25rem', color: 'var(--primary)', fontWeight: 700, marginBottom: '0.75rem' }}>Lokal Tilstedeværelse</h4>
                                     <p style={{ fontSize: '1.05rem' }}>Vi er din revisor i øjenhøjde, altid klar til en uforpligtende kop kaffe.</p>
                                 </div>
                             </div>
                         </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="anmeldelser" style={{ 
+                backgroundColor: 'var(--bg-offset)',
+                overflow: 'hidden',
+                padding: '2rem 0 8rem'
+            }}>
+                <div className="container">
+                    <motion.div
+                        style={{ textAlign: 'center', marginBottom: '3.5rem' }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                            <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--primary)' }}>5.0</div>
+                            <div style={{ display: 'flex', gap: '0.25rem' }}>
+                                {[...Array(5)].map((_, i) => (
+                                    <span key={i} style={{ color: '#fbbf24', fontSize: '1.5rem' }}>★</span>
+                                ))}
+                            </div>
+                        </div>
+                        <h2 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Fremragende på Google</h2>
+                        <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.25rem' }}>
+                            Vores kunder anerkender os for vores personlige tilgang og kompromisløse faglighed.
+                        </p>
+                    </motion.div>
+                </div>
+
+                {/* Reviews Marquee */}
+                <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+                    <motion.div 
+                        style={{ display: 'flex', gap: '2rem', width: 'max-content', padding: '1rem' }}
+                        animate={{ x: [0, -1800] }}
+                        transition={{ 
+                            duration: 35, 
+                            repeat: Infinity, 
+                            ease: "linear"
+                        }}
+                    >
+                        {[
+                            {
+                                name: 'Morten Jensen',
+                                role: 'Ejer, ScanTech ApS',
+                                text: 'Professionel og nærværende rådgivning. Nordens Revision har gjort vores regnskabsprocesser utroligt simple og overskuelige.'
+                            },
+                            {
+                                name: 'Sara Andersen',
+                                role: 'Iværksætter',
+                                text: 'Altid til rådighed og svarer hurtigt på alle spørgsmål. Det er den bedste revisor vi har haft i firmaets levetid. Kan varmt anbefales!'
+                            },
+                            {
+                                name: 'Thomas Bak',
+                                role: 'Direktør, Bak Logistik',
+                                text: 'Høj faglighed og en meget personlig service. Man føler sig virkelig i trygge hænder hos teamet.'
+                            },
+                            {
+                                name: 'Henrik Nielsen',
+                                role: 'Transportør',
+                                text: 'De forstår vognmandsbranchen ud og ind. Deres hjælp med transport-erklæringer var hurtig og fejlfri.'
+                            },
+                            {
+                                name: 'Mette Poulsen',
+                                role: 'Butiksejer',
+                                text: 'Som lille erhvervsdrivende har jeg brug for en revisor, der taler et sprog jeg forstår. Det gør de her.'
+                            },
+                            {
+                                name: 'Jesper Holm',
+                                role: 'Freelancer',
+                                text: 'Super effektiv bogføring. Det har givet mig langt mere tid til min kernevirksomhed. Stor anbefaling!'
+                            },
+                            // Duplicate for seamless scroll
+                            {
+                                name: 'Morten Jensen',
+                                role: 'Ejer, ScanTech ApS',
+                                text: 'Professionel og nærværende rådgivning. Nordens Revision har gjort vores regnskabsprocesser utroligt simple og overskuelige.'
+                            },
+                            {
+                                name: 'Sara Andersen',
+                                role: 'Iværksætter',
+                                text: 'Altid til rådighed og svarer hurtigt på alle spørgsmål. Det er den bedste revisor vi har haft i firmaets levetid. Kan varmt anbefales!'
+                            }
+                        ].map((rev, i) => (
+                            <div
+                                key={i}
+                                className="service-card"
+                                style={{ 
+                                    backgroundColor: 'white', 
+                                    padding: '2.5rem', 
+                                    width: '380px', 
+                                    flexShrink: 0,
+                                    boxShadow: 'var(--shadow-md)'
+                                }}
+                            >
+                                <div style={{ display: 'flex', gap: '0.2rem', marginBottom: '1.25rem', color: '#fbbf24' }}>
+                                    {[...Array(5)].map((_, s) => (
+                                        <span key={s} style={{ fontSize: '0.875rem' }}>★</span>
+                                    ))}
+                                </div>
+                                <p style={{ fontSize: '1.05rem', fontStyle: 'italic', marginBottom: '2rem', color: 'var(--text-main)', lineHeight: 1.7 }}>
+                                    "{rev.text}"
+                                </p>
+                                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
+                                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0 }}>{rev.name}</h4>
+                                    <p style={{ fontSize: '0.875rem', margin: 0 }}>{rev.role}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginTop: '5rem' }}>
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)' }}>
+                            <span style={{ 
+                                background: '#4285F4', 
+                                color: 'white', 
+                                width: '24px', 
+                                height: '24px', 
+                                borderRadius: '4px', 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent: 'center',
+                                fontWeight: 900,
+                                fontSize: '0.75rem'
+                            }}>G</span>
+                            <span>Google Rating: <strong>5.0 / 5</strong> baseret på over 40 anmeldelser</span>
+                        </div>
                     </div>
                 </div>
             </section>

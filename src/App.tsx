@@ -3,6 +3,8 @@ import Header from './components/Header';
 import LoadingScreen from './components/LoadingScreen';
 import LandingPage from './pages/LandingPage';
 import ContactPage from './pages/ContactPage';
+import PricesPage from './pages/PricesPage';
+import DeclarationsPage from './pages/DeclarationsPage';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/kontakt" element={<ContactPage />} />
+        <Route path="/priser" element={<PricesPage />} />
+        <Route path="/erklaeringer" element={<DeclarationsPage />} />
       </Routes>
 
       <footer style={{ padding: '6rem 0', background: 'white', borderTop: '1px solid var(--border)', textAlign: 'center' }}>

@@ -76,15 +76,15 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
-  line-height: 1.05;
-  margin-bottom: 2.5rem;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   letter-spacing: -0.04em;
 }
 
 h2 {
-  font-size: clamp(2.75rem, 6vw, 3.5rem);
-  margin-bottom: 5rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 3rem;
   text-align: center;
   letter-spacing: -0.03em;
 }
@@ -196,6 +196,19 @@ nav.scrolled {
 
 .nav-links a:not(.btn):hover {
   color: var(--accent);
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
 }
 
 /* Hero */
@@ -326,7 +339,19 @@ nav.scrolled {
   }
 
   section {
-    padding: 5rem 0;
+    padding: 4rem 0;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
   }
 
   .hero-logo-bg {
