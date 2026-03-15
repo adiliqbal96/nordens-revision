@@ -1,54 +1,72 @@
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
-const MagneticButton: React.FC<{ children: React.ReactNode; className: string; to: string }> = ({ children, className, to }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
-    const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
-
-    function handleMouseMove(e: React.MouseEvent) {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        x.set((e.clientX - centerX) * 0.4);
-        y.set((e.clientY - centerY) * 0.4);
-    }
-
-    function handleMouseLeave() {
-        x.set(0);
-        y.set(0);
-    }
-
+const HeroButton: React.FC<{ children: React.ReactNode; className: string; to: string; onClick?: (e: React.MouseEvent) => void }> = ({ children, className, to, onClick }) => {
     return (
-        <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{ x: mouseX, y: mouseY, display: 'inline-block' }}
+        <Link
+            to={to}
+            className={className}
+            style={{ 
+                textDecoration: 'none', 
+                userSelect: 'none'
+            }}
+            onClick={onClick}
+            draggable="false"
         >
-            <Link
-                to={to}
-                className={className}
-                style={{ textDecoration: 'none' }}
+            <motion.div
+                whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: '0 20px 40px -10px rgba(13, 148, 136, 0.3)',
+                    translateY: -2
+                }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '100%'
+                }}
             >
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                    {children}
-                </motion.div>
-            </Link>
-        </motion.div>
+                {children}
+            </motion.div>
+        </Link>
     );
 };
 
 const Hero: React.FC = () => {
+    const handleScrollToYdelser = (e: React.MouseEvent) => {
+        const element = document.getElementById('ydelser');
+        if (element) {
+            e.preventDefault();
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="hero" id="home" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="hero-logo-bg">
-                <img src={logo} alt="" style={{ width: '100%', height: 'auto', mixBlendMode: 'multiply', opacity: 0.05 }} />
+            <div className="hero-logo-bg" style={{ 
+                position: 'absolute', 
+                top: '50%', 
+                left: '50%', 
+                transform: 'translate(-50%, -50%)',
+                width: '120%',
+                zIndex: 0,
+                pointerEvents: 'none',
+                userSelect: 'none'
+            }}>
+                <img 
+                    src={logo} 
+                    alt="" 
+                    style={{ 
+                        width: '100%', 
+                        height: 'auto', 
+                        opacity: 0.08,
+                        filter: 'grayscale(100%) brightness(1.2)',
+                    }} 
+                />
             </div>
 
             <div className="container">
@@ -72,8 +90,14 @@ const Hero: React.FC = () => {
                             Vi sikrer, at dit regnskab flytter din virksomhed fremad.
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem', marginTop: '3.5rem' }}>
-                            <MagneticButton to="/kontakt" className="btn btn-primary">Book rådgivning</MagneticButton>
-                            <MagneticButton to="/#ydelser" className="btn btn-outline">Se vores ydelser</MagneticButton>
+                            <HeroButton to="/kontakt" className="btn btn-primary">Book rådgivning</HeroButton>
+                            <HeroButton 
+                                to="/#ydelser" 
+                                className="btn btn-outline"
+                                onClick={handleScrollToYdelser}
+                            >
+                                Se vores ydelser
+                            </HeroButton>
                         </div>
                     </motion.div>
                 </div>

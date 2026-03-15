@@ -1,44 +1,65 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
     BarChart3,
     Search,
     Handshake,
     FileText,
     Truck,
-    Rocket
+    Rocket,
+    Calculator,
+    ArrowRightLeft
 } from 'lucide-react';
 
 const services = [
     {
+        slug: 'bogfoering',
         title: 'Bogføring',
-        description: 'Effektiv og præcis bogføring, der danner fundamentet for din virksomheds succes.',
+        description: 'Ved at overlade dit bogholderi til Nordens Revision, kan du fokusere din tid og energi på din forretning og det du er bedst til. Vi hjælper med at fjerne hovedpinen i bogholderiet.',
         icon: <BarChart3 size={28} />
     },
     {
-        title: 'Revision',
-        description: 'Pålidelig revision, der skaber tryghed og gennemsigtighed for alle interessenter.',
-        icon: <Search size={28} />
+        slug: 'loenadministration',
+        title: 'Lønadministration',
+        description: 'Lønninger er tidskrævende. Det er også en af de mest forretningskritiske funktioner, der skal køre problemfrit, så du, dine medarbejdere og dine kunder alle er glade.',
+        icon: <Calculator size={28} />
     },
     {
+        slug: 'stiftelse',
+        title: 'Stiftelse',
+        description: 'Hvis du overvejer at stifte en virksomhed eller lukke en virksomhed, så er der nogle forskellige ting du skal tage stilling til. Nordens Revision kan rådgive dig til den bedste løsning.',
+        icon: <Rocket size={28} />
+    },
+    {
+        slug: 'omdannelser',
+        title: 'Omdannelser',
+        description: 'Hvis du går med overvejelser om at omdanne din virksomhed, er der nogle forskellige ting du skal tage stilling til. Du bør derfor altid rådføre dig med en revisor.',
+        icon: <ArrowRightLeft size={28} />
+    },
+    {
+        slug: 'raadgivning',
         title: 'Rådgivning',
-        description: 'Proaktiv rådgivning om skat, økonomi og virksomhedens langsigtede strategi.',
+        description: 'Vi kan godt lide at have et tæt samarbejde med vores kunder og hjælpe dem på de måder, de har brug for - både mht. målsætninger og de udfordringer de møder.',
         icon: <Handshake size={28} />
     },
     {
-        title: 'Årsregnskab',
-        description: 'Opstilling af årsrapporter i overensstemmelse med gældende lovgivning.',
+        slug: 'regnskaber',
+        title: 'Regnskaber',
+        description: 'Når året er omme, skal der udarbejdes et årsregnskab og det kan være lidt af en opgave. Vi hjælper små og mellemstore virksomheder i alle brancher med regnskaber.',
         icon: <FileText size={28} />
     },
     {
-        title: 'Revisorerklæring til persontransport og varebil',
-        description: 'Professionel assistance ved revisorerklæring til persontransport og varebil.',
-        icon: <Truck size={28} />
+        slug: 'revision',
+        title: 'Revision',
+        description: 'Pålidelig revision, der skaber tryghed og gennemsigtighed for alle interessenter. Vi sikrer at dit regnskab overholder alle gældende regler.',
+        icon: <Search size={28} />
     },
     {
-        title: 'Startups',
-        description: 'Specialiseret hjælp til iværksættere, fra forretningsplaner til selskabsdannelse.',
-        icon: <Rocket size={28} />
+        slug: 'transportservice',
+        title: 'Transportservice',
+        description: 'Specialiseret assistance ved revisorerklæring til persontransport og varebil (Færdselsstyrelsen). Vi sikrer hurtig og korrekt sagsbehandling.',
+        icon: <Truck size={28} />
     }
 ];
 
@@ -47,14 +68,14 @@ const containerVariants: Variants = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15,
+            staggerChildren: 0.1,
             delayChildren: 0.1
         }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
     show: {
         opacity: 1,
         y: 0,
@@ -80,6 +101,12 @@ const Services: React.FC = () => {
                     key={index}
                     className="service-card"
                     variants={itemVariants}
+                    style={{ 
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        height: '100%',
+                        padding: '2.5rem'
+                    }}
                     whileHover={{
                         y: -10,
                         scale: 1.02,
@@ -87,9 +114,23 @@ const Services: React.FC = () => {
                         borderColor: 'var(--accent)'
                     }}
                 >
-                    <div className="service-icon">{service.icon}</div>
-                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1.25rem' }}>{service.title}</h3>
-                    <p style={{ fontSize: '1rem', lineHeight: '1.7' }}>{service.description}</p>
+                    <div className="service-icon" style={{ marginBottom: '1.5rem' }}>{service.icon}</div>
+                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1.25rem', color: 'var(--primary)' }}>{service.title}</h3>
+                    <p style={{ fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', marginBottom: '2rem', flexGrow: 1 }}>
+                        {service.description}
+                    </p>
+                    <Link 
+                        to={`/ydelser/${service.slug}`} 
+                        className="btn btn-primary" 
+                        style={{ 
+                            padding: '0.75rem 1.5rem', 
+                            fontSize: '0.9rem', 
+                            width: 'fit-content',
+                            textDecoration: 'none'
+                        }}
+                    >
+                        Læs mere
+                    </Link>
                 </motion.div>
             ))}
         </motion.div>

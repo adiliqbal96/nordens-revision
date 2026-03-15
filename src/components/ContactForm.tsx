@@ -30,7 +30,7 @@ const ContactForm: React.FC = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };

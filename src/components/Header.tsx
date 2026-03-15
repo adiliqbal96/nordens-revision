@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
+
 const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,8 +45,8 @@ const Header: React.FC = () => {
                     top: 0,
                     width: '100%',
                     zIndex: 1000,
-                    padding: scrolled ? '1rem 0' : '1.5rem 0',
-                    background: scrolled ? 'rgba(255, 255, 255, 0.9)' : 'rgba(248, 250, 252, 0.6)',
+                    padding: scrolled ? '0.75rem 0' : '1.25rem 0',
+                    background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(248, 250, 252, 0.6)',
                     backdropFilter: 'blur(20px)',
                     borderBottom: scrolled ? '1px solid rgba(0,0,0,0.05)' : '1px solid transparent',
                     transition: 'all 0.3s ease'
@@ -53,9 +54,8 @@ const Header: React.FC = () => {
             >
                 <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <motion.div
-                        className="logo"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
                     >
                         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>
                             <div className="logo" style={{ fontSize: '1.5rem', fontWeight: 800, color: '#000', letterSpacing: '-0.03em' }}>
@@ -68,22 +68,38 @@ const Header: React.FC = () => {
                     <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                         {navItems.map((item) => {
                             const id = item === 'Hjem' ? 'home' : item.toLowerCase().replace(' ', '');
+                            if (isHome) {
+                                return (
+                                    <motion.a
+                                        key={item}
+                                        href={`#${id}`}
+                                        whileHover={{ color: 'var(--accent)' }}
+                                        style={{ 
+                                            textDecoration: 'none', 
+                                            color: 'var(--text-main)', 
+                                            fontWeight: 500,
+                                            cursor: 'pointer'
+                                        }}
+                                        onClick={(e) => handleNavClick(id, e)}
+                                        className="desktop-only"
+                                    >
+                                        {item}
+                                    </motion.a>
+                                );
+                            }
                             return (
-                                <motion.a
+                                <Link
                                     key={item}
-                                    href={isHome ? `#${id}` : `/#${id}`}
-                                    whileHover={{ color: 'var(--accent)' }}
+                                    to={`/#${id}`}
                                     style={{ 
                                         textDecoration: 'none', 
                                         color: 'var(--text-main)', 
-                                        fontWeight: 500,
-                                        display: 'var(--desktop-only, block)' // Controlled by CSS or hidden below
+                                        fontWeight: 500
                                     }}
-                                    onClick={(e) => handleNavClick(id, e)}
                                     className="desktop-only"
                                 >
                                     {item}
-                                </motion.a>
+                                </Link>
                             );
                         })}
                         <Link to="/priser" className="desktop-only" style={{ textDecoration: 'none', color: 'var(--text-main)', fontWeight: 500 }}>Priser</Link>
@@ -103,7 +119,7 @@ const Header: React.FC = () => {
                                 cursor: 'pointer', 
                                 color: 'var(--primary)',
                                 padding: '0.5rem',
-                                display: 'none' // Controlled by CSS media queries
+                                display: 'none'
                             }}
                         >
                             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -137,15 +153,27 @@ const Header: React.FC = () => {
                     >
                         {navItems.map((item) => {
                             const id = item === 'Hjem' ? 'home' : item.toLowerCase().replace(' ', '');
+                            if (isHome) {
+                                return (
+                                    <a
+                                        key={item}
+                                        href={`#${id}`}
+                                        style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}
+                                        onClick={(e) => handleNavClick(id, e)}
+                                    >
+                                        {item}
+                                    </a>
+                                );
+                            }
                             return (
-                                <a
+                                <Link
                                     key={item}
-                                    href={isHome ? `#${id}` : `/#${id}`}
+                                    to={`/#${id}`}
                                     style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}
-                                    onClick={(e) => handleNavClick(id, e)}
+                                    onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item}
-                                </a>
+                                </Link>
                             );
                         })}
                         <Link to="/priser" style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>Priser</Link>

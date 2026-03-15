@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ShieldCheck } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 
 const ContactPage: React.FC = () => {
@@ -27,7 +27,8 @@ const ContactPage: React.FC = () => {
                             {[
                                 { label: 'E-mail', value: 'info@nordensrevision.dk', icon: <Mail size={24} color="var(--accent)" />, href: 'mailto:info@nordensrevision.dk' },
                                 { label: 'Telefon', value: '+45 50 69 69 17', icon: <Phone size={24} color="var(--accent)" />, href: 'tel:+4550696917' },
-                                { label: 'Adresse', value: 'Arnold Nielsens Blvd. 124, 2650 Hvidovre', icon: <MapPin size={24} color="var(--accent)" /> }
+                                { label: 'Adresse', value: 'Arnold Nielsens Blvd. 124, 2650 Hvidovre', icon: <MapPin size={24} color="var(--accent)" /> },
+                                { label: 'CVR', value: '43754610', icon: <ShieldCheck size={24} color="var(--accent)" /> }
                             ].map((item, idx) => (
                                 <motion.div
                                     key={idx}

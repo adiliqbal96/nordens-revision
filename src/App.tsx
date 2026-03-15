@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import ContactPage from './pages/ContactPage';
 import PricesPage from './pages/PricesPage';
 import DeclarationsPage from './pages/DeclarationsPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 
 function App() {
   return (
@@ -16,13 +17,14 @@ function App() {
         <Route path="/kontakt" element={<ContactPage />} />
         <Route path="/priser" element={<PricesPage />} />
         <Route path="/erklaeringer" element={<DeclarationsPage />} />
+        <Route path="/ydelser/:serviceId" element={<ServiceDetailPage />} />
       </Routes>
 
       <footer style={{ padding: '6rem 0', background: 'white', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
         <div className="container">
           <div className="logo" style={{ marginBottom: '1.5rem' }}>NORDENS<span>REVISION</span></div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-            &copy; {new Date().getFullYear()} Nordens Revision ApS. CVR: XXXXXXXX.
+            &copy; {new Date().getFullYear()} Nordens Revision ApS. CVR: 43754610.
           </p>
         </div>
       </footer>
