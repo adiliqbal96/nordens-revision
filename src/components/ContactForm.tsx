@@ -50,13 +50,15 @@ const ContactForm: React.FC = () => {
                         className="success-message"
                         style={{ textAlign: 'center', padding: '4rem 0' }}
                     >
-                        <CheckCircle size={64} color="var(--accent-light)" style={{ marginBottom: '1.5rem' }} />
-                        <h3 style={{ color: 'white' }}>Tak for din besked!</h3>
-                        <p style={{ color: '#94a3b8' }}>Vi vender tilbage til dig hurtigst muligt.</p>
+                        <CheckCircle size={48} color="var(--accent)" style={{ marginBottom: '1.25rem' }} />
+                        <h3 style={{ color: 'var(--primary)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Tak for din besked</h3>
+                        <p style={{ color: 'var(--text-muted)', fontSize: '0.9375rem', lineHeight: 1.65, maxWidth: '300px', margin: '0 auto 1.75rem' }}>
+                            Vi vender tilbage inden for én hverdag — typisk hurtigere.
+                        </p>
                         <button
                             onClick={() => setStatus('idle')}
                             className="btn btn-outline"
-                            style={{ marginTop: '2rem', color: 'white', borderColor: 'rgba(255,255,255,0.2)' }}
+                            style={{ fontSize: '0.875rem' }}
                         >
                             Send en ny besked
                         </button>
@@ -94,8 +96,11 @@ const ContactForm: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="form-group" style={{ marginTop: '1.5rem' }}>
-                            <label>Telefon (valgfrit)</label>
+                        <div className="form-group" style={{ marginTop: '1.25rem' }}>
+                            <label>
+                                Telefon
+                                <span style={{ fontWeight: 400, color: 'var(--text-muted)', marginLeft: '0.4rem', fontSize: '0.8rem' }}>— valgfrit</span>
+                            </label>
                             <input
                                 type="tel"
                                 name="phone"
@@ -105,15 +110,15 @@ const ContactForm: React.FC = () => {
                             />
                         </div>
 
-                        <div className="form-group" style={{ marginTop: '1.5rem' }}>
-                            <label>Besked</label>
+                        <div className="form-group" style={{ marginTop: '1.25rem' }}>
+                            <label>Hvad drejer det sig om?</label>
                             <textarea
                                 name="message"
                                 required
                                 value={formData.message}
                                 onChange={handleChange}
                                 rows={5}
-                                placeholder="Hvordan kan vi hjælpe dig?"
+                                placeholder="Fortæl kort hvad du har brug for. Fx bogføring, årsrapport, momsindberetning, løn eller erklæring til Færdselsstyrelsen..."
                             ></textarea>
                         </div>
 
@@ -121,86 +126,92 @@ const ContactForm: React.FC = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#f87171' }}
+                                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#c0392b', fontSize: '0.875rem' }}
                             >
-                                <AlertCircle size={18} />
-                                <span>Der opstod en fejl. Prøv venligst igen senere.</span>
+                                <AlertCircle size={16} />
+                                <span>Noget gik galt. Prøv igen eller ring til os på +45 50 69 69 17.</span>
                             </motion.div>
                         )}
 
-                        <motion.button
+                        <button
                             type="submit"
                             className="btn btn-primary"
                             disabled={status === 'loading'}
                             style={{
-                                marginTop: '2.5rem',
+                                marginTop: '2rem',
                                 width: '100%',
-                                backgroundColor: 'var(--accent)',
+                                backgroundColor: 'var(--primary)',
                                 color: 'white',
-                                padding: '1.25rem'
+                                padding: '1rem',
+                                fontSize: '0.9375rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '0.6rem',
+                                cursor: status === 'loading' ? 'not-allowed' : 'pointer',
+                                opacity: status === 'loading' ? 0.7 : 1,
                             }}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
                         >
-                            {status === 'loading' ? 'Sender...' : (
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                    Send besked <Send size={18} />
-                                </span>
-                            )}
-                        </motion.button>
+                            {status === 'loading' ? 'Sender...' : <><Send size={15} /> Send din besked</>}
+                        </button>
+
+                        <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '0.875rem', lineHeight: 1.5 }}>
+                            Vi vender tilbage inden for én hverdag.
+                        </p>
                     </motion.form>
                 )}
             </AnimatePresence>
 
             <style>{`
                 .premium-form {
-                    background: #ffffff;
-                    padding: 3.5rem;
-                    border-radius: 2rem;
-                    border: 1px solid var(--border);
-                    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
+                    /* card styling handled by ContactPage wrapper */
                 }
                 .form-grid {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 1.5rem;
+                    gap: 1.25rem;
                 }
-                @media (max-width: 640px) {
-                    .form-grid {
-                        grid-template-columns: 1fr;
-                    }
+                @media (max-width: 560px) {
+                    .form-grid { grid-template-columns: 1fr; }
                 }
                 .form-group label {
                     display: block;
-                    font-size: 0.935rem;
+                    font-size: 0.875rem;
                     font-weight: 600;
-                    margin-bottom: 0.75rem;
-                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                    color: var(--text-main);
+                    font-family: var(--font-main);
+                    letter-spacing: -0.01em;
                 }
-                .form-group input, .form-group textarea {
+                .form-group input,
+                .form-group textarea {
                     width: 100%;
-                    padding: 1.15rem;
-                    background: var(--bg-offset);
+                    padding: 0.8rem 1rem;
+                    background: var(--bg-base);
                     border: 1px solid var(--border);
-                    border-radius: 0.875rem;
-                    color: var(--primary);
-                    font-family: inherit;
-                    transition: var(--transition);
+                    border-radius: 4px;
+                    color: var(--text-main);
+                    font-family: var(--font-body);
+                    font-size: 0.9375rem;
+                    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+                    -webkit-appearance: none;
                 }
-                .form-group input:focus, .form-group textarea:focus {
+                .form-group input:focus,
+                .form-group textarea:focus {
                     outline: none;
                     border-color: var(--accent);
                     background: #ffffff;
-                    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.05);
+                    box-shadow: 0 0 0 3px rgba(26, 112, 101, 0.08);
                 }
-                .form-group input::placeholder, .form-group textarea::placeholder {
-                    color: #94a3b8;
+                .form-group input::placeholder,
+                .form-group textarea::placeholder {
+                    color: var(--text-muted);
+                    opacity: 0.7;
                 }
-                .success-message h3 {
-                    color: var(--primary) !important;
-                }
-                .success-message p {
-                    color: var(--text-muted) !important;
+                .form-group textarea {
+                    resize: vertical;
+                    min-height: 120px;
+                    line-height: 1.65;
                 }
             `}</style>
         </div>

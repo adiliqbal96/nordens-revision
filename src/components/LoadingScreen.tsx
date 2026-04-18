@@ -1,14 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import logo from '../assets/logo.png';
 
 const LoadingScreen = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1800); // Shorter duration for better UX
+        const timer = setTimeout(() => setLoading(false), 1400);
         return () => clearTimeout(timer);
     }, []);
 
@@ -18,41 +15,49 @@ const LoadingScreen = () => {
                 <motion.div
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 0.55, ease: 'easeOut' }}
                     style={{
                         position: 'fixed',
                         inset: 0,
                         zIndex: 9999,
-                        backgroundColor: '#ffffff',
+                        backgroundColor: 'var(--primary)',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        gap: '1.75rem',
                     }}
                 >
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        style={{ width: 'clamp(180px, 40vw, 240px)', marginBottom: '2rem' }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.55, ease: 'easeOut' }}
+                        style={{
+                            fontFamily: 'Outfit, sans-serif',
+                            fontSize: 'clamp(1.75rem, 8vw, 2.75rem)',
+                            fontWeight: 800,
+                            letterSpacing: '-0.04em',
+                            color: 'white',
+                        }}
                     >
-                        <img
-                            src={logo}
-                            alt="Nordens Revision"
-                            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-                        />
+                        NORDENS<span style={{ color: 'var(--accent-light)' }}>REVISION</span>
                     </motion.div>
 
-                    {/* Green loading bar (streg) */}
-                    <div style={{ width: '200px', height: '4px', backgroundColor: 'rgba(13, 148, 136, 0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div style={{
+                        width: '140px',
+                        height: '2px',
+                        background: 'rgba(255,255,255,0.08)',
+                        borderRadius: '2px',
+                        overflow: 'hidden',
+                    }}>
                         <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: '100%' }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            transition={{ duration: 1.1, ease: 'easeInOut' }}
                             style={{
                                 height: '100%',
-                                backgroundColor: 'var(--accent)', // Teal/Green accent
-                                borderRadius: '4px'
+                                background: 'var(--accent-light)',
+                                borderRadius: '2px',
                             }}
                         />
                     </div>
