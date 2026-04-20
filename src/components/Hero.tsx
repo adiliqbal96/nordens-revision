@@ -17,10 +17,10 @@ const DocCard: React.FC = () => (
                 <span style={{ fontSize: '0.675rem', textTransform: 'uppercase', letterSpacing: '0.09em', color: 'var(--text-muted)', fontWeight: 700 }}>Næste frist</span>
             </div>
             <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--primary)', fontFamily: 'var(--font-main)', letterSpacing: '-0.01em' }}>
-                Årsrapport 2024
+                Momsindberetning
             </div>
             <div style={{ fontSize: '0.8125rem', color: '#c0392b', fontWeight: 600, marginTop: '0.2rem' }}>
-                30. jun 2025
+                02. jun 2025
             </div>
         </motion.div>
 
