@@ -116,7 +116,7 @@ const Header: React.FC = () => {
                             className="btn btn-primary"
                             style={{ padding: '0.575rem 1.25rem', fontSize: '0.875rem' }}
                         >
-                            Få et tilbud
+                            Kontakt os
                         </Link>
                     </div>
 
@@ -228,7 +228,7 @@ const Header: React.FC = () => {
                             onClick={() => setIsMenuOpen(false)}
                             style={{ marginTop: 'auto', padding: '1.125rem', justifyContent: 'center', display: 'flex' }}
                         >
-                            Få et tilbud
+                            Kontakt os
                         </Link>
 
                         <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '1rem' }}>

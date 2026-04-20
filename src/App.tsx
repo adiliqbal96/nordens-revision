@@ -96,7 +96,7 @@ function App() {
               &copy; {new Date().getFullYear()} Nordens Revision ApS · CVR 43754610 · Hvidovre
             </p>
             <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.25)', margin: 0 }}>
-              Professionel revisionsrådgivning siden 2023
+              Professionel rådgivning siden 2023
             </p>
           </div>
         </div>
