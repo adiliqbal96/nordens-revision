@@ -16,7 +16,7 @@ const ContactForm: React.FC = () => {
         setStatus('loading');
 
         try {
-            const response = await fetch('/mail.php', {
+            const response = await fetch('https://formspree.io/f/xlgalzoz', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
