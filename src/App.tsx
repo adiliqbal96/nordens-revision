@@ -30,7 +30,7 @@ function App() {
                 NORDENS<span style={{ color: 'var(--accent-light)' }}>REVISION</span>
               </div>
               <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, margin: 0, maxWidth: '220px' }}>
-                Professionel bogføring, revision og rådgivning til selvstændige i Hvidovre.
+                Professionel bogføring, revision og rådgivning til selvstændige.
               </p>
             </div>
 
@@ -93,10 +93,10 @@ function App() {
           {/* Bottom bar */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.75rem', flexWrap: 'wrap', gap: '0.75rem' }}>
             <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', margin: 0 }}>
-              &copy; {new Date().getFullYear()} Nordens Revision ApS · CVR 43754610 · Hvidovre
+              &copy; {new Date().getFullYear()} Nordens Revision ApS · CVR 43754610
             </p>
             <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.25)', margin: 0 }}>
-              Professionel rådgivning siden 2023
+              Professionel rådgivning 2023
             </p>
           </div>
         </div>

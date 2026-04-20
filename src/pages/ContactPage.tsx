@@ -66,7 +66,7 @@ const ContactPage: React.FC = () => {
                             {[
                                 { icon: <ShieldCheck size={12} />, text: 'Gratis og uforpligtende' },
                                 { icon: <Clock size={12} />, text: 'Svar inden for 1 hverdag' },
-                                { icon: <ArrowRight size={12} />, text: 'Lokal revisor i Hvidovre' },
+                                { icon: <ArrowRight size={12} />, text: 'Personlig revisor — ikke et callcenter' },
                             ].map((pill, i) => (
                                 <div key={i} style={{
                                     display: 'inline-flex',

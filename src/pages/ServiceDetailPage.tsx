@@ -392,7 +392,7 @@ const ServiceDetailPage: React.FC = () => {
             <section style={{ padding: '4rem 0', borderTop: '1px solid var(--border)' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', margin: 0 }}>
-                        Nordens Revision ApS &bull; CVR 43754610 &bull; Professionel rådgivning siden 2023
+                        Nordens Revision ApS &bull; CVR 43754610 &bull; Professionel rådgivning 2023
                     </p>
                 </div>
             </section>

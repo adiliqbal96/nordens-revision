@@ -78,7 +78,7 @@ const DeclarationsPage: React.FC = () => {
                 >
                     <span className="section-label">Erklæringer</span>
                     <h1 style={{ marginBottom: '1.25rem' }}>
-                        Revisorerklæringer<br />til transport og<br />erhverv
+                        Varebil, godstransport<br />og persontransport
                     </h1>
                     <p style={{ fontSize: '1.0625rem', color: 'var(--text-body)', lineHeight: 1.8, maxWidth: '560px' }}>
                         Vi er specialiserede i de erklæringer Færdselsstyrelsen kræver af vognmænd og transportvirksomheder. Derudover tilbyder vi egenkapitalerklæringer, budgeterklæringer og revisorerklæringer til banker, myndigheder og Erhvervsstyrelsen — leveret hurtigt og korrekt.

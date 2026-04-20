@@ -168,7 +168,7 @@ const ProfilePanel: React.FC = () => (
         {/* Promise rows */}
         <div style={{ background: 'white' }}>
             {[
-                { icon: <MapPin size={14} />, text: 'Lokal revisor i Hvidovre' },
+                { icon: <MapPin size={14} />, text: 'Personlig revisor — ikke et callcenter' },
                 { icon: <UserCheck size={14} />, text: 'Personlig service — ikke et callcenter' },
                 { icon: <Clock size={14} />, text: 'Svar inden for én hverdag' },
             ].map((item, i) => (
@@ -377,13 +377,13 @@ const LandingPage: React.FC = () => {
                         >
                             <span className="section-label">Om os</span>
                             <h2 style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
-                                Din revisor i<br />Hvidovre
+                                Din revisor —<br />altid tilgængelig
                             </h2>
                             <p style={{ fontSize: '1.0625rem', color: 'var(--text-body)', lineHeight: 1.8, marginBottom: '1rem' }}>
                                 Bag ethvert regnskab er der en selvstændig med frister, bilag og ansvar. Vi sørger for at moms er indberettet, løn er korrekt, årsrapporten er klar — og at du sover roligt om natten.
                             </p>
                             <p style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2.25rem' }}>
-                                Vi hjælper ApS'er, enkeltmandsvirksomheder og transportvirksomheder i Hvidovre og omegn med alt fra daglig bogføring til skattemæssig rådgivning og revisorerklæringer. Personlig service — ikke et callcenter.
+                                Vi hjælper ApS'er, enkeltmandsvirksomheder og transportvirksomheder med alt fra daglig bogføring til skattemæssig rådgivning og revisorerklæringer. Personlig service — ikke et callcenter.
                             </p>
                             <div style={{ display: 'flex', gap: '3rem', paddingTop: '1.75rem', borderTop: '1px solid var(--border)' }}>
                                 <div>
@@ -455,7 +455,7 @@ const LandingPage: React.FC = () => {
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            Selvstændige og virksomheder i Hvidovre og omegn anbefaler os for vores personlige tilgang og faglighed.
+                            Selvstændige og virksomheder anbefaler os for vores personlige tilgang og faglighed.
                         </motion.p>
                     </div>
 
