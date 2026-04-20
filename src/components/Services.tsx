@@ -72,6 +72,7 @@ const Services: React.FC = () => {
     const navigate = useNavigate();
 
     return (
+        <div className="services-swipe-wrapper">
         <div className="services-editorial-grid">
             {SERVICES.map((svc, i) => {
                 const isTransport = !!svc.transport;
@@ -135,6 +136,8 @@ const Services: React.FC = () => {
                     </motion.div>
                 );
             })}
+        </div>
+        <p className="services-swipe-hint">Swipe for at se alle ydelser →</p>
         </div>
     );
 };

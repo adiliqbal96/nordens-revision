@@ -432,6 +432,10 @@ nav.scrolled {
   background: white;
 }
 
+.services-swipe-hint {
+  display: none;
+}
+
 .services-editorial-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -650,27 +654,59 @@ nav.scrolled {
   }
 
   .services-editorial-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0 -1.25rem;
+    padding: 0.25rem 1.25rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .services-editorial-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-swipe-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-family: var(--font-main);
+    opacity: 0.6;
   }
 
   .services-editorial-grid .svc-card {
-    grid-column: 1 !important;
-    grid-row: auto !important;
+    grid-column: unset !important;
+    grid-row: unset !important;
+    min-width: 78vw;
+    max-width: 78vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem 1.5rem;
   }
 
-  .svc-card.transport {
+  .services-editorial-grid .svc-card.featured {
+    background: var(--bg-base);
+    padding: 1.75rem 1.5rem;
+  }
+
+  .services-editorial-grid .svc-card.transport {
+    min-width: 85vw;
+    max-width: 85vw;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem 1.5rem;
-  }
-
-  .svc-card {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .svc-card.featured {
-    padding: 1.75rem 1.25rem;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    padding: 1.75rem 1.5rem;
   }
 
   .contact-section {
