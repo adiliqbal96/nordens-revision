@@ -178,21 +178,18 @@ export const servicesData: Record<string, ServiceDetail> = {
         fitsYouIf: [
             'Du vil optimere din skat som ejer eller selvstændig',
             'Du har brug for sparring om vigtige forretningsbeslutninger',
-            'Du planlægger generationsskifte eller salg af virksomhed',
             'Du ønsker en fast rådgiver der kender din branche og din situation',
         ],
         deliverables: [
             'Løbende skatteplanlægning og optimering',
             'Sparring om selskabsstruktur og ejerforhold',
             'Budgetter og likviditetsprognoser',
-            'Rådgivning ved køb, salg eller generationsskifte',
             'Finansiel forberedelse til bankgespræch',
         ],
         benefits: [
             'Proaktiv skatteplanlægning – ikke reaktiv brandslukning',
             'En rådgiver der kender din virksomhed og taler klart',
             'Strategisk sparring ved store beslutninger',
-            'Hjælp til generationsskifte og salg af virksomhed',
         ],
         process: [
             { title: 'Statusmøde', description: 'Vi kigger på din nuværende situation – skat, struktur, økonomi og fremtidsplaner – og identificerer de vigtigste indsatsområder.' },
@@ -243,7 +240,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         icon: <Search size={48} />,
         shortDescription: 'Din professionelle revisor med kvalitet og tryghed i fokus.',
         heroTitle: 'Revision der skaber tillid – hos banker, myndigheder og investorer',
-        intro: 'Revision handler om mere end kontrol. Det handler om troværdighed. En revisorerklæring fra Nordens Revision signalerer til omverdenen, at din virksomheds økonomi er gennemgået af uafhængige øjne. Vi tilbyder revision, erklæringer og revisorpåtegninger til alle typer virksomheder.',
+        intro: 'Revision handler om mere end kontrol. Det handler om troværdighed. En revisorerklæring signalerer til omverdenen, at din virksomheds økonomi er gennemgået af uafhængige øjne. Vi tilbyder revision, erklæringer og revisorpåtegninger til alle typer virksomheder.',
         fullDescription: 'Din professionelle revisor med kvalitet og tryghed i fokus. Sammen opnår vi et samarbejde i verdensklasse, da du altid bliver prioriteret hos os. Nordens Revision ApS tilbyder revisorerklæringer, erklæring om genoptagelse af virksomheder, erklæring om egenkapital, erklæring om virksomhedens budgettet samt erklæring mht. årsregnskaber.',
         fitsYouIf: [
             'Din virksomhed er revisionspligtig',
