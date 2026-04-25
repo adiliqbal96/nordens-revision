@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight } from 'lucide-react';
 import { servicesData } from '../constants/servicesData';
@@ -30,6 +31,11 @@ const ServiceDetailPage: React.FC = () => {
 
     return (
         <main style={{ backgroundColor: '#fff', overflow: 'hidden' }}>
+            <Helmet>
+                <title>{service.title} | Nordens Revision</title>
+                <meta name="description" content={service.intro.slice(0, 155)} />
+                <link rel="canonical" href={`https://nordensrevision.dk/ydelser/${service.id}`} />
+            </Helmet>
 
             {/* Hero */}
             <section style={{

@@ -2,7 +2,7 @@
   "name": "nordens-revision",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://adiliqbal96.github.io/nordens-revision",
+  "homepage": "https://nordensrevision.dk",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +17,7 @@
     "lucide-react": "^0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.13.1"
   },
   "devDependencies": {

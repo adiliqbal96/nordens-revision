@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Star, ShieldCheck, ArrowRight, MapPin, UserCheck, Clock, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -338,6 +339,11 @@ const LandingPage: React.FC = () => {
 
     return (
         <main>
+            <Helmet>
+                <title>Nordens Revision | Revisor & Bogføring til Selvstændige</title>
+                <meta name="description" content="Nordens Revision ApS — bogføring, årsregnskaber, lønadministration, revision og rådgivning til selvstændige og ApS. Svar inden for én hverdag." />
+                <link rel="canonical" href="https://nordensrevision.dk/" />
+            </Helmet>
             <Hero />
 
             {/* Services */}

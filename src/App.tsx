@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import LoadingScreen from './components/LoadingScreen';
 import LandingPage from './pages/LandingPage';
@@ -9,6 +10,7 @@ import ServiceDetailPage from './pages/ServiceDetailPage';
 
 function App() {
   return (
+    <HelmetProvider>
     <Router>
       <LoadingScreen />
       <Header />
@@ -102,6 +104,7 @@ function App() {
         </div>
       </footer>
     </Router>
+    </HelmetProvider>
   );
 }
 

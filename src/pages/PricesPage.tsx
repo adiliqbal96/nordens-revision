@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageSquare, ClipboardList, FileCheck, CheckCircle2 } from 'lucide-react';
@@ -40,6 +41,11 @@ const PricesPage: React.FC = () => {
 
     return (
         <main style={{ paddingTop: '6.5rem', paddingBottom: '7rem', backgroundColor: 'var(--bg-base)' }}>
+            <Helmet>
+                <title>Priser | Nordens Revision</title>
+                <meta name="description" content="Se priser på bogføring, årsregnskaber, lønadministration og revision hos Nordens Revision ApS. Gennemsigtige priser til selvstændige og ApS." />
+                <link rel="canonical" href="https://nordensrevision.dk/priser" />
+            </Helmet>
             <div className="container">
 
                 {/* Hero */}

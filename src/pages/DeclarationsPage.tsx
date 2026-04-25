@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Truck, Car, Package, FileSignature, ArrowRight, ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -68,6 +69,11 @@ const DeclarationsPage: React.FC = () => {
 
     return (
         <main style={{ paddingTop: '7rem', paddingBottom: '8rem', backgroundColor: 'var(--bg-base)' }}>
+            <Helmet>
+                <title>Varebil, Godstransport og Persontransport Erklæringer | Nordens Revision</title>
+                <meta name="description" content="Revisorerklæringer til Færdselsstyrelsen for varebil, godstransport og persontransport. Hurtig levering 1–3 hverdage. Nordens Revision ApS." />
+                <link rel="canonical" href="https://nordensrevision.dk/erklaeringer" />
+            </Helmet>
             {/* Hero */}
             <div className="container">
                 <motion.div

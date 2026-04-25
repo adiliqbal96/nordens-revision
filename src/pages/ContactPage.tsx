@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
@@ -39,6 +40,11 @@ const ContactPage: React.FC = () => {
 
     return (
         <main style={{ paddingTop: '6.5rem', paddingBottom: '7rem', backgroundColor: 'var(--bg-base)' }}>
+            <Helmet>
+                <title>Kontakt os | Nordens Revision</title>
+                <meta name="description" content="Kontakt Nordens Revision ApS — ring, skriv eller udfyld formularen. Vi svarer inden for én hverdag. Tlf: +45 50 69 69 17." />
+                <link rel="canonical" href="https://nordensrevision.dk/kontakt" />
+            </Helmet>
             <div className="container">
                 <div style={{
                     display: 'grid',
